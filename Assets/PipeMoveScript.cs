@@ -6,6 +6,7 @@ public class PipeMoveScript : MonoBehaviour
 {
     public float moveSpeed;
     public float deadZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,6 @@ public class PipeMoveScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }
