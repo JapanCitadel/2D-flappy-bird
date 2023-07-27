@@ -7,7 +7,8 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigiBody;
     public float flapStrength;
     public LogicScript logic;
-    private bool isAlive = true;
+    public bool isAlive = true;
+    public PipeMiddleScript mid;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,16 @@ public class BirdScript : MonoBehaviour
         {
             myRigiBody.velocity = Vector2.up * flapStrength;
         }
+
+        if (transform.position.y > 25 || transform.position.y < -25)
+        {
+            logic.gameOver();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         logic.gameOver();
+        isAlive = false;
     }
 }
